@@ -1,5 +1,5 @@
 {
-  "name": "mubi-ai-api",
+  "name": "pm-gextapi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,13 +13,9 @@
     "body-parser": "^1.20.2",
     "colors": "^1.4.0",
     "express": "^4.19.2",
-    "express-rate-limit": "^7.3.1",
     "glob": "^10.4.2",
-    "mongoose": "^8.4.0",
-    "openai": "^4.38.5",
-    "rate-limiter-flexible": "^5.0.2",
-    "uuidv4": "^6.2.13",
-    "ws": "^8.18.0"
+    "@joshdb/core": "3.0.0-next.ad2db89.0",
+    "@joshdb/json": "3.0.0-next.65a96d3.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
