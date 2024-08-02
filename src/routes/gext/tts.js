@@ -46,6 +46,6 @@ module.exports = {
         
         c.status(200);
         c.setHeader('Content-Type', 'audio/mp3');
-        gtts.stream().pipe(c.res);
+        gtts.stream().pipe(c);
     }
 };
