@@ -3,7 +3,7 @@ const JSONProvider = require("@joshdb/json");
 
 const database = new Josh({
     name: "discordauth",
-    provider: new JSONProvider()
+    provider: JSONProvider
 });
 
 module.exports = database;
