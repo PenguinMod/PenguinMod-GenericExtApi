@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "colors": "^1.4.0",
     "express": "^4.19.2",
     "glob": "^10.4.2",
