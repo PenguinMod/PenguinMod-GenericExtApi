@@ -1,1 +1,7 @@
 node_modules
+
+# Ignore all configs
+src/configs/*
+
+# Ignore all logs
+logs/*
