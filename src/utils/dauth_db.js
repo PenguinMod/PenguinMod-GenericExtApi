@@ -1,4 +1,4 @@
-const Josh = require("@joshdb/core");
+const { Josh } = require("@joshdb/core");
 const JSONProvider = require("@joshdb/json");
 
 const database = new Josh({
