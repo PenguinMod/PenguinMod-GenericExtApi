@@ -4,7 +4,7 @@ const userDB = require('../../utils/dauth_db');
 module.exports = {
   endpoint: "/user",
   method: "get",
-  domain: "localhost",
+  domain: "discordauth.penguinmod.com",
   parameters: [{
     type: "query",
     required: true,
