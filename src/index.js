@@ -19,6 +19,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json({ limit: "10kb" }));
 
+app.get("/robots.txt", (req, res) => {
+    res.sendFile("../assets/robots.txt");
+});
+
 handleRoutes(app);
 
 app.listen(port, () => {
