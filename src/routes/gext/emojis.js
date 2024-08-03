@@ -37,7 +37,7 @@ const getMetadata = async () => {
 module.exports = {
     endpoint: "/emojis",
     method: "get",
-    domain: "localhost",
+    domain: "gextapi.penguinmod.com",
     parameters: [
         {
             type: "query",
