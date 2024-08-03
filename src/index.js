@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const logger = require("./utils/logger");
 const express = require("express");
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const port = gconfig.SERVER_PORT;
@@ -19,8 +20,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json({ limit: "10kb" }));
 
+const robotsFilePath = path.resolve(__dirname, '../assets/robots.txt');
+
 app.get("/robots.txt", (req, res) => {
-    res.sendFile("../assets/robots.txt");
+    res.sendFile(robotsFilePath);
 });
 
 handleRoutes(app);
