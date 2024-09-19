@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const config = require('../../configs/dauth.json');
 const userDB = require('../../utils/dauth_db');
 const axios = require('axios');
@@ -18,6 +19,7 @@ module.exports = {
 		}
 
 		try {
+			// Step 1: Exchange the code for an access token
 			const tokenResponse = await axios.post('https://discord.com/api/oauth2/token', new URLSearchParams({
 				client_id: config.CLIENT_ID,
 				client_secret: config.CLIENT_SECRET,
@@ -32,6 +34,7 @@ module.exports = {
 
 			const accessToken = tokenResponse.data.access_token;
 
+			// Step 2: Fetch user information from Discord
 			const userResponse = await axios.get('https://discord.com/api/users/@me', {
 				headers: {
 					Authorization: `Bearer ${accessToken}`,
@@ -40,17 +43,21 @@ module.exports = {
 
 			const user = userResponse.data;
 
-			// generate private code
+			// Step 3: Generate a private code for the user
 			const privateCode = generatePrivateCode();
 
-			// put private code in db to identify the user 
-			await usersDB.set(privateCode, user);
+			// Step 4: Save the private code and user information in the database
+			await userDB.set(privateCode, user);
 
-			// Send the code to the client
+			// Step 5: Send the private code to the client
 			c.send(`<script>window.opener.postMessage('${privateCode}', '*'); window.close();</script>`);
 		} catch (error) {
 			console.error('Error during authentication:', error);
 			c.status(500).send('Internal Server Error');
 		}
 	}
+}
+
+function generatePrivateCode() {
+	return crypto.randomBytes(16).toString('hex');
 }
