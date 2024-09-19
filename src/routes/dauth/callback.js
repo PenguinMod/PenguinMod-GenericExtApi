@@ -13,7 +13,7 @@ module.exports = {
 	async execute(c) {
 		const code = c.params.code;
 		if (!code) {
-			return res.status(400).send('No code provided');
+			return c.status(400).send('No code provided');
 		}
 
 		try {
@@ -46,10 +46,10 @@ module.exports = {
 			await usersDB.set(privateCode, user);
 
 			// Send the code to the client
-			res.send(`<script>window.opener.postMessage('${privateCode}', '*'); window.close();</script>`);
+			c.send(`<script>window.opener.postMessage('${privateCode}', '*'); window.close();</script>`);
 		} catch (error) {
 			console.error('Error during authentication:', error);
-			res.status(500).send('Internal Server Error');
+			c.status(500).send('Internal Server Error');
 		}
 	}
 }
