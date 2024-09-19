@@ -1,5 +1,6 @@
 const config = require('../../configs/dauth.json');
 const userDB = require('../../utils/dauth_db');
+const axios = require('axios');
 
 module.exports = {
 	endpoint: "/callback",
