@@ -49,8 +49,9 @@ module.exports = {
 			// Step 4: Save the private code and user information in the database
 			await userDB.set(privateCode, user);
 
-			// Step 5: Send the private code to the client
-			c.send(`<script>window.opener.postMessage('${privateCode}', '*'); window.close();</script>`);
+			// Step 5: Send the private code to the client via redirect
+			const callbackUrl = `${config.REDIRECT_URI}?privatecode=${encodeURIComponent(privateCode)}`;
+			c.redirect(callbackUrl);
 		} catch (error) {
 			console.error('Error during authentication:', error);
 			c.status(500).send('Internal Server Error');
