@@ -13,11 +13,10 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "colors": "^1.4.0",
-    "easy-json-database": "^1.5.1",
     "express": "^4.19.2",
     "glob": "^10.4.2",
-    "@joshdb/core": "3.0.0-next.ad2db89.0",
-    "@joshdb/json": "3.0.0-next.65a96d3.0",
+    "@joshdb/core": "^1.2.7",
+    "@joshdb/json": "^1.0.5",
     "gtts": "^0.2.1"
   },
   "devDependencies": {
