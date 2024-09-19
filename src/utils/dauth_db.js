@@ -1,14 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const Database = require('easy-json-database');
+const Josh = require("@joshdb/core");
+const JSONProvider = require("@joshdb/json");
 
-const dbDirectory = path.join(__dirname, '../../databases');
-const dbFilePath = path.join(dbDirectory, 'discordauth.json');
-
-if (!fs.existsSync(dbDirectory)) {
-    fs.mkdirSync(dbDirectory, { recursive: true });
-}
-
-const database = new Database(dbFilePath);
+const database = new Josh({
+    name: "discordauth",
+    provider: JSONProvider
+});
 
 module.exports = database;
