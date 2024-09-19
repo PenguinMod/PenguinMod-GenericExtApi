@@ -9,8 +9,8 @@ module.exports = {
 	domain: "discordauth.penguinmod.com",
 	parameters: [{
 		type: "query",
-		required: true,
-		name: "privatecode"
+		required: false,
+		name: "code"
 	}],
 	async execute(c) {
 		const code = c.params.code;
@@ -50,7 +50,7 @@ module.exports = {
 			await userDB.set(privateCode, user);
 
 			// Step 5: Send the private code to the client via redirect
-			const callbackUrl = `${config.REDIRECT_URI}?privatecode=${encodeURIComponent(privateCode)}`;
+			const callbackUrl = `https://studio.penguinmod.com/?privatecode=${encodeURIComponent(privateCode)}`;
 			c.redirect(callbackUrl);
 		} catch (error) {
 			console.error('Error during authentication:', error);
