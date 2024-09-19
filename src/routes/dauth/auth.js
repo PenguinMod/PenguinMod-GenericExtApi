@@ -1,7 +1,7 @@
 const config = require('../../configs/dauth.json');
 
 module.exports = {
-    endpoint: "/auth",
+    endpoint: "/verify",
     method: "get",
     domain: "discordauth.penguinmod.com",
     parameters: [],
