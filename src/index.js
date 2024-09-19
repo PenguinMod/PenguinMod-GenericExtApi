@@ -10,10 +10,7 @@ const app = express();
 const port = gconfig.SERVER_PORT;
 
 app.use(logger);
-app.use(cors({
-    origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}));
+app.use(cors());
 app.use(bodyParser.urlencoded({
     limit: "10kb",
     extended: false
