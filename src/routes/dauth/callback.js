@@ -10,7 +10,7 @@ module.exports = {
 	parameters: [{
 		type: "query",
 		required: true,
-		name: "code"
+		name: "privatecode"
 	}],
 	async execute(c) {
 		const code = c.params.code;
