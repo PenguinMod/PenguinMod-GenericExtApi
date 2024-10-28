@@ -23,6 +23,10 @@ app.get("/robots.txt", (req, res) => {
     res.sendFile(robotsFilePath);
 });
 
+app.get('/', (req, res) => {
+    res.send("sigma api is working");
+});
+
 handleRoutes(app);
 
 app.listen(port, () => {
